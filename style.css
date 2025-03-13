@@ -165,37 +165,80 @@ span{
 .education h2{
     margin-bottom: 5rem;
 }
-.education-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.timeline-items{
+    max-width: 1200px;
+    margin: auto;
+    display:flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    position: relative;
 }
-.education-container .education-box{
-    flex: 1 1 30rem;
-    background: var(--snd-bg-color);
-    padding: 1rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: .2rem solid var(--bg-color);
-    transition: .5s ease;
+.timeline-items::before{
+    content:"";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--snd-bg-color);
+    left: calc(50% - 1px)
 }
-.education-container .education-box:hover{
-    border-color: var(--main-color);
-    transform: scale(1.02);
+.timeline-item{
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
 }
-.education-box i{
-    font-size: 4rem;
-    padding: 3rem 2rem 1rem;
-    color: var(--main-color);
+.timeline-item:last-child{
+    margin-bottom: 0;
 }
-.education-box h3{
-    font-size: 2.6rem;
+.timeline-item:nth-child(odd){
+    padding-right: calc(50% + 30px);
+    text-align: right;
 }
-.education-box p{
-    font-size: 1.6rem;
-    margin: 1rem 0 3rem;
+.timeline-item:nth-child(even){
+    padding-left: calc(50% + 30px);
+}
+.timeline-dot{
+    height: 21px;
+    width: 21px;
+    background-color: var(--snd-bg-color);
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 50px var(--main-color);
+    position: absolute;
+    left: calc(50% - 8.5px);
+    border-radius: 50%;
+    top: 10px; 
+}
+.timeline-date{
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    margin: 6px 0 15px;
+}
+.timeline-content{
+    background-color: var(--snd-bg-color);
+    border: 3px solid var(--main-color);
+    padding: 30px 50px;
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--main-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.timeline-content:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color);
+}
+.timeline-content h3{
+    font-size: 20px;
+    color: white;
+    margin: 0 0 10px;
+    font-weight: 500;
+}
+.timeline-content p{
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+}
+.timeline-content i{
+    font-size: 2.5rem;
 }
 .project{
     background-color: var(--bg-color);
@@ -244,10 +287,10 @@ span{
     transform: translateY(0);
 }
 .project-layer h4{
-    font-size: 3rem;
+    font-size: 2.2rem;
 }
 .project-layer p{
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin: .3rem 0 1rem;
 }
 .project-layer a{
@@ -297,8 +340,15 @@ span{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 50px;
+    margin: 40px;
 }
+.contact-info i{
+    color: var(--main-color);
+}
+.contact-info span{
+    color: var(--text-color);
+}
+
 .location{
     font-size: 2rem;
     display: flex;
@@ -361,8 +411,20 @@ span{
     section{
         padding: 10rem 3%;
     }
-    .education{
-        padding: 7rem;
+    .timeline-items::before{
+        left: 7px
+    }
+    .timeline-item:nth-child(odd){
+        padding-right: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even){
+        padding-left: 37px;
+    }
+    .timeline-dot{
+        left: 0;
+    }
     }
     .project{
         padding-bottom: 7rem;
@@ -370,13 +432,10 @@ span{
     .contact{
         min-height: auto;
     }
-    .contact-info{
-        display: block;
-    }
     .footer{
         padding: 2rem 3%;
     }
-}
+
 
 @media (max-width: 768px){
     #menu-icon{
@@ -426,6 +485,9 @@ span{
     }
     .education h2{
         margin-bottom: 3rem;
+    }
+    .contact-info{
+        flex-direction: column;
     }
     .project h2{
         margin-bottom: 3rem;
