@@ -1,5 +1,8 @@
 # Personal-Portfolio Website
 
+![Todo App UI](./page-1.png)
+
+
 A responsive personal portfolio website created using **HTML**, **CSS**, and **JavaScript**. 
 
 This website showcases:
