@@ -6,6 +6,7 @@ This website showcases:
 
 - Personal Details
 - Education Details
+- Certifications
 - Projects
 - Contact Information
 
